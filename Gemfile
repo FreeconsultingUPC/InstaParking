@@ -45,3 +45,10 @@ group :development do
   gem 'spring'
 end
 
+# Twitter Bootstrap Themed Application
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails', '<= 3.2.0'
+
+# Simplified form Management
+gem 'simple_form'
