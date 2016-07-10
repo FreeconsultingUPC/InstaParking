@@ -38,7 +38,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top " role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
@@ -74,31 +74,33 @@
     </div>
     
     <div class="container">
-      <div id="home">
-        <h1>Home</h1>
-        <div class="col-md-3 text-center">
-            <%= image_tag('accesibilidad.jpg', :class => "img img-circle") %>
-            <h3>Accesibilidad</h3>
-            <p class="p-home">Tenemos estacionamientos en todos los distritos de Lima de manera que puedas contar con nosotros en el lugar que estes.</p>
-        </div>
-        <div class="col-md-3 text-center">
-            <%= image_tag('confianza.jpg', :class => "img img-circle") %>
-            <h3>Confianza</h3>
-            <p class="p-home">Son mas de 5000 usuarios que han utilizado el servicio y que garantizan una buena experiencia con nosotros.</p>
-        </div>
-        <div class="col-md-3 text-center">
-            <%= image_tag('seguridad.jpg', :class => "img img-circle") %>
-            <h3>Seguridad</h3>
-            <p class="p-home">Contamos con un control exhaustivo  de verificacion de estacionamientos para que puedas estar seguro al usar nuestro servicio.</p>
-        </div>
-        <div class="col-md-3 text-center">
-            <%= image_tag('tiempo.jpg', :class => "img img-circle") %>
-            <h3>Tiempo</h3>
-        <p class="p-home">Reduce las horas interminables en la busqueda de un estacionamiento para usarlas en las cosas importantes de tu vida.</p>
+      <div id="home" class="grupo">
+        <h1 class="title">Home</h1>
+        <div class="row">
+          <div class="col-md-3 text-center">
+              <%= image_tag('accesibilidad.jpg', :class => "img img-circle") %>
+              <h3>Accesibilidad</h3>
+              <p class="p-home">Tenemos estacionamientos en todos los distritos de Lima de manera que puedas contar con nosotros en el lugar que estes.</p>
+          </div>
+          <div class="col-md-3 text-center">
+              <%= image_tag('confianza.jpg', :class => "img img-circle") %>
+              <h3>Confianza</h3>
+              <p class="p-home">Son mas de 5000 usuarios que han utilizado el servicio y que garantizan una buena experiencia con nosotros.</p>
+          </div>
+          <div class="col-md-3 text-center">
+              <%= image_tag('seguridad.jpg', :class => "img img-circle") %>
+              <h3>Seguridad</h3>
+              <p class="p-home">Contamos con un control exhaustivo  de verificacion de estacionamientos para que puedas estar seguro al usar nuestro servicio.</p>
+          </div>
+          <div class="col-md-3 text-center">
+              <%= image_tag('tiempo.jpg', :class => "img img-circle") %>
+              <h3>Tiempo</h3>
+          <p class="p-home">Reduce las horas interminables en la busqueda de un estacionamiento para usarlas en las cosas importantes de tu vida.</p>
+          </div>
         </div>
       </div>
-      <div id="nosotros">
-        <h1>About</h1>
+      <div id="about" class="grupo">
+        <h1 class="title">About</h1>
         <div class="row">
           <div class="col-lg-4">
             <%= image_tag('about.jpg', :class => "img img-width-aboutUs img-responsive") %>
@@ -118,8 +120,8 @@
         </div>
       </div>
       
-      <div id="parking">
-        <h1>Our Parking</h1>
+      <div id="parking" class="grupo">
+        <h1 class="title">Our Parking</h1>
         <h3>No trabajamos para alcanzar metas. Las metas llegan gracias al hacer el bien para los dem&aacutes.</h3>
         </br>
         </br>
@@ -138,24 +140,13 @@
       </div>
     </div>
 
-    <!--<div class="container">
+    <div class="container">
       <div class="row">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div>
-        </div>
-      </div>-->
+      </div>
 
       <footer>
         <p>&copy; Company 2016</p>
