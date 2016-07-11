@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @place.address %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @place.price %>
+</p>
+
+<p>
+  <strong>Url image:</strong>
+  <%= @place.url_image %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @place.state %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @place.started_at %>
+</p>
+
+<p>
+  <strong>Ended at:</strong>
+  <%= @place.ended_at %>
+</p>
+
+<p>
+  <strong>Started time:</strong>
+  <%= @place.started_time %>
+</p>
+
+<p>
+  <strong>Ended time:</strong>
+  <%= @place.ended_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.description %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @place.users %>
+</p>
+
+<p>
+  <strong>Districts:</strong>
+  <%= @place.districts %>
+</p>
+
+<p>
+  <strong>Reservation types:</strong>
+  <%= @place.reservation_types %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>

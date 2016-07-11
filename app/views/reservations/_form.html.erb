@@ -1,0 +1,18 @@
+<%= simple_form_for(@reservation) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :code %>
+    <%= f.input :started_at %>
+    <%= f.input :ended_at %>
+    <%= f.input :started_time %>
+    <%= f.input :ended_time %>
+    <%= f.association :users %>
+    <%= f.association :places %>
+    <%= f.association :reservation_types %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

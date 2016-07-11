@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Menus:</strong>
+  <%= @menu_role.menus %>
+</p>
+
+<p>
+  <strong>Roles:</strong>
+  <%= @menu_role.roles %>
+</p>
+
+<%= link_to 'Edit', edit_menu_role_path(@menu_role) %> |
+<%= link_to 'Back', menu_roles_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Menu Roles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Menus</th>
+      <th>Roles</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menu_roles.each do |menu_role| %>
+      <tr>
+        <td><%= menu_role.menus %></td>
+        <td><%= menu_role.roles %></td>
+        <td><%= link_to 'Show', menu_role %></td>
+        <td><%= link_to 'Edit', edit_menu_role_path(menu_role) %></td>
+        <td><%= link_to 'Destroy', menu_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu role', new_menu_role_path %>

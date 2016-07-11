@@ -1,0 +1,12 @@
+<%= simple_form_for(@menu_role) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :menus %>
+    <%= f.association :roles %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
