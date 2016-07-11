@@ -1,5 +1,6 @@
 class Place < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :districts
-  belongs_to :reservation_types
+  belongs_to :user
+  belongs_to :district
+  belongs_to :reservation_type
+  has_many :reservations
 end

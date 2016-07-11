@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Menu Roles</h1>
-
-<table>
+<%- model_class = MenuRole -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Menus</th>
-      <th>Roles</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:menu_id) %></th>
+      <th><%= model_class.human_attribute_name(:role_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @menu_roles.each do |menu_role| %>
       <tr>
-        <td><%= menu_role.menus %></td>
-        <td><%= menu_role.roles %></td>
-        <td><%= link_to 'Show', menu_role %></td>
-        <td><%= link_to 'Edit', edit_menu_role_path(menu_role) %></td>
-        <td><%= link_to 'Destroy', menu_role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to menu_role.id, menu_role_path(menu_role) %></td>
+        <td><%= menu_role.menu_id %></td>
+        <td><%= menu_role.role_id %></td>
+        <td><%=l menu_role.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_menu_role_path(menu_role), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      menu_role_path(menu_role),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Menu role', new_menu_role_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_menu_role_path,
+            :class => 'btn btn-primary' %>

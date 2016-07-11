@@ -15,3 +15,8 @@
 .space{
     margin-top:50px;
 }
+
+.form-horizontal .form-group {
+    margin-left: 0px; 
+    margin-right: 0px; 
+}

@@ -1,2 +1,19 @@
-<li><%= link_to "Public Place", new_place_path %></li>
-<li><%= link_to "Reservation", new_reservation_path %></li>
+<li><%= link_to "Public Places", new_place_path %></li>
+<li><%= link_to "Reservations", new_reservation_path %></li>
+
+<li><%= link_to "Favorites", favorites_path %></li>
+<li><%= link_to "Dsitricts", districts_path %></li>
+<li><%= link_to "Roles", roles_path %></li>
+<li><%= link_to "Menus", menus_path %></li>
+<li><%= link_to "Menu Roles", menu_roles_path %></li>
+<li><%= link_to "Reservations Types", reservation_types_path %></li>
+
+<% if user_signed_in? %>
+<li>
+    <%= link_to(destroy_user_session_path, :method => :delete, :class => '') do %>
+    <i class="fa fa-fw fa-power-off"> </i><span> Sign Out</span>
+    <% end %>
+</li>
+<% else %>
+    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+<% end %>

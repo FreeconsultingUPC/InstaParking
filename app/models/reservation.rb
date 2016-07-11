@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :places
-  belongs_to :reservation_types
+  belongs_to :user
+  belongs_to :place
+  belongs_to :reservation_type
 end
