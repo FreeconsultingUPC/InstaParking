@@ -68,3 +68,9 @@
 .devise-bs{
     max-width:300px;
 }
+
+.group-col{
+    border-bottom: 1px solid #dff0d8;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

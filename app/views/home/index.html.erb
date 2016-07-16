@@ -44,15 +44,41 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="form-group">
-              <div class="input-group bootstrap-timepicker timepicker">
-                <input id="timepicker1" type="text" class="form-control input-small">
-                <span class="input-group-addon"><i class=""></i></span>
-              </div>
+            <div class="form-group bootstrap-timepicker timepicker">
+              <label class="control-label">Hora Desde</label>
+              <input class="form-control input-small" type="text" name="started_time" id="started_time">
             </div>
           </div>
           <div class="col-lg-6">
-            
+            <div class="form-group bootstrap-timepicker timepicker">
+              <label class="control-label">Hora Hasta</label>
+              <input class="form-control input-small" type="text" name="ended_time" id="ended_time">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="control-label">Distrito</label>
+              <select class="form-control" type="text" name="district" id="district">
+                <option>Molina</option>
+                <option>Ate</option>
+                <option>Villa María del Triunfo</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="control-label">Typo de reservación</label>
+              <select class="form-control" type="text" name="reservation_type" id="reservation_type">
+                <option>Diario</option>
+                <option>Semanal</option>
+                <option>Mensual</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pull-right">
+            <button type="button" class="btn btn-lg btn-success">Buscar</button>
           </div>
         </div>
       </div>
@@ -62,7 +88,101 @@
     <div class="panel panel-success">
       <div class="panel-heading">Panel heading without title</div>
       <div class="panel-body">
-        Panel content
+        
+        <div class="group-col">
+          <div class="row">
+            <div class="col-lg-8">
+              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
+              <lavel>Distrito: Ate</lavel><br>
+              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
+              <button type="button" class="btn btn-info">Ver Más</button>
+              <button type="button" class="btn btn-success">Reservar</button>
+            </div>
+            <div class="col-lg-4">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group-col">
+          <div class="row fila-lista">
+            <div class="col-lg-4">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+            </div>
+            <div class="col-lg-8">
+              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
+              <lavel>Distrito: Ate</lavel><br>
+              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
+              <button type="button" class="btn btn-info">Ver Más</button>
+              <button type="button" class="btn btn-success">Reservar</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group-col">
+          <div class="row">
+            <div class="col-lg-8">
+              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
+              <lavel>Distrito: Ate</lavel><br>
+              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
+              <button type="button" class="btn btn-info">Ver Más</button>
+              <button type="button" class="btn btn-success">Reservar</button>
+            </div>
+            <div class="col-lg-4">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group-col">
+          <div class="row fila-lista">
+            <div class="col-lg-4">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+            </div>
+            <div class="col-lg-8">
+              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
+              <lavel>Distrito: Ate</lavel><br>
+              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
+              <button type="button" class="btn btn-info">Ver Más</button>
+              <button type="button" class="btn btn-success">Reservar</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group-col">
+          <div class="row">
+            <div class="col-lg-8">
+              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
+              <lavel>Distrito: Ate</lavel><br>
+              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
+              <button type="button" class="btn btn-info">Ver Más</button>
+              <button type="button" class="btn btn-success">Reservar</button>
+            </div>
+            <div class="col-lg-4">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+            </div>
+          </div>
+        </div>
+        
+        <div class="group-col">
+          <div class="row fila-lista">
+            <div class="col-lg-4">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+            </div>
+            <div class="col-lg-8">
+              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
+              <lavel>Distrito: Ate</lavel><br>
+              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
+              <button type="button" class="btn btn-info">Ver Más</button>
+              <button type="button" class="btn btn-success">Reservar</button>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
       </div>
     </div>
   </div>
@@ -72,8 +192,11 @@
 
 <script>
   $(document).ready(function(){
-    $('.datepicker').datepicker();
-    $('#timepicker1').timepicker();
+    $('#started_at').datepicker();
+    $('#ended_at').datepicker();
+    
+    $('#started_time').timepicker();
+    $('#ended_time').timepicker();
   })
 </script>
 
