@@ -58,3 +58,8 @@ gem 'simple_form'
 
 gem 'devise-bootstrap-views'
 
+#datepicker bootstrap
+gem 'bootstrap-datepicker-rails'
+#timepicker bootstrap
+gem 'bootstrap-timepicker-rails'
+
