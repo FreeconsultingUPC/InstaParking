@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'reserve/new'
+
+  get 'reserve/show'
+
+  get 'reserve/reserve'
+
+  get 'reserve/delete'
+
+  get 'reserve/index'
+
   resources :reservations
   resources :places
   resources :reservation_types
