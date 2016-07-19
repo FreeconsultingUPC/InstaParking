@@ -41,8 +41,9 @@
 .footer{
     background: #404040;
     color: #fff;
-    height: 30px;
+    height: 100px;
     text-align:center;
+    padding-top: 10px;
 }
 
 .navbar-default{
@@ -59,7 +60,7 @@
 
 
 
-.navbar-nav li:hover{
+.menu-sis li:hover{
     background:#ffa64d;
     color:#fff;
     padding-bottom:20px;
@@ -73,4 +74,24 @@
     border-bottom: 1px solid #dff0d8;
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+.menu-popup{
+    float: left;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #f5ab62;
+    color: #555;
+    cursor: hand;
+}
+
+.dropdown-toggle{
+    height: 70px;
 }

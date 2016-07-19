@@ -1,4 +1,4 @@
 class Favorite < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :districts
+  belongs_to :user
+  belongs_to :district
 end
