@@ -1,12 +1,16 @@
 
-/*body {
+/**HOME RESERVA DE PARKING**/
+#fondo_img_taxi{
+    height: 450px;
+    background: url(/assets/fondo_reserva.jpg) no-repeat;
     width: 100%;
-    height: 799px;
-    margin: 0 auto;
-    background-image: url(/assets/fondo.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-}*/
+    border-bottom: 1px solid #dff0d8;
+}
+
+#container_reservation{
+    margin-top: -146px;
+}
+/****/
 
 .navbar-static-top{
     margin-bottom: 0px;
@@ -23,7 +27,7 @@
 }
 
 .space{
-    margin-top:80px;
+    margin-top:70px;
 }
 
 .form-horizontal .form-group {
