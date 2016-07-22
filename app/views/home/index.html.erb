@@ -1,10 +1,16 @@
 
 <div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
     <div class="panel panel-info">
       <div class="panel-heading">Formulario De Busqueda de Parqueo</div>
       <div class="panel-body">
         <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="string optional control-label">Dirección</label>
+              <input class="string optional form-control" type="text" name="address" id="address">
+            </div>
+          </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div class="form-group">
               <label class="string optional control-label">Fecha Desde</label>
@@ -17,35 +23,14 @@
               <input class="string optional form-control" type="text" name="ended_at" id="ended_at" data-provide='datepicker'>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <div class="form-group bootstrap-timepicker timepicker">
-              <label class="control-label">Hora Desde</label>
-              <input class="form-control input-small" type="text" name="started_time" id="started_time">
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <div class="form-group bootstrap-timepicker timepicker">
-              <label class="control-label">Hora Hasta</label>
-              <input class="form-control input-small" type="text" name="ended_time" id="ended_time">
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
               <label class="control-label">Distrito</label>
               <select class="form-control" type="text" name="district" id="district">
-                <option>Molina</option>
-                <option>Ate</option>
-                <option>Villa María del Triunfo</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <div class="form-group">
-              <label class="control-label">Typo de reservación</label>
-              <select class="form-control" type="text" name="reservation_type" id="reservation_type">
-                <option>Diario</option>
-                <option>Semanal</option>
-                <option>Mensual</option>
+                <option value="">Seleccionar</option>
+                <% @districts.each do |district| %>
+                  <option value="<%=district.id %>"><%=district.name %></option>
+                <% end %>
               </select>
             </div>
           </div>
@@ -53,15 +38,16 @@
         <div class="row">
           <div class="col-lg-12 pull-right">
             <button type="button" class="btn btn-lg btn-success" id="buscar_park">Buscar</button>
+            <button type="button" class="btn btn-lg btn-default" id="limpiar_park">Limpiar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
     <div class="panel panel-success">
-      <div class="panel-heading">Parqueos</div>
-      <div class="panel-body">
+      <div class="panel-heading">Paquesos Disponibles</div>
+      <div class="panel-body" id="list_places">
         
         
        
@@ -70,11 +56,12 @@
             <div class="group-col">
               <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                  <lavel>Dirección: <%=place.address %></lavel><br>
-                  <lavel>Distrito: <%=place.district %></lavel><br>
-                  <lavel>Precio: <b>S/. <%=place.price %></b></lavel><br>
-                  <button type="button" class="btn btn-info">Ver Más</button>
-                  <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-md btn-success" %>
+                  <div><b>Dirección:</b> <%=place.address %></div>
+                  <div><b>Distrito:</b> <%= place.district.name %></div>
+                  <div><b>Precio:</b> <b class="precio">S/. <%=place.price %></b></div>
+                  <br>
+                  <%= link_to "Más Detalles", '', :class=>"btn btn-sm btn-info" %>
+                  <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-sm btn-success" %>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                   <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
@@ -83,15 +70,7 @@
             </div>
           <% end %>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         <div class="detalle-park" style="display:none">
           <div class="row">
             <div class="col-lg-12">
@@ -120,8 +99,16 @@
 
 <script>
   $(document).ready(function(){
-    $('#started_at').datepicker();
-    $('#ended_at').datepicker();
+    $('#started_at').datepicker({
+      startDate: new Date(),
+      autoclose: true,
+      calendarWeeks: true,
+    });
+    $('#ended_at').datepicker({
+      startDate: $('#started_at').val(),
+      autoclose: true,
+      calendarWeeks: true,
+    });
     
     $('#started_time').timepicker();
     $('#ended_time').timepicker();
@@ -141,6 +128,67 @@
       $(".group-col").show();
       $(".detalle-park").hide();
     });
+    
+    
+    printHtml = function(data){
+           var html='';
+          
+           if(data.length>0){
+               for (var i = 0; i < data.length; i++) {
+                 
+                  html += '<div class="group-col">';
+                    html += '<div class="row">';
+                      html += '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">';
+                        html += '<div><b>Dirección: </b>'+data[i].address+'</div>';
+                        html += '<div><b>Distrito: </b>'+data[i].district.name+'</div>';
+                        html += '<div><b>Precio: </b> <b class="precio">S/. '+data[i].price+'</b></div>';
+                        html += '<br>';
+                        html += '<%= link_to "Más Detalles", "", :class=>"btn btn-sm btn-info" %>&nbsp;';
+                        html += '<%= link_to "Reservar", reserve_new_path, :class=>"btn btn-sm btn-success" %>';
+                      html += '</div>';
+                      
+                      html += '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">';
+                        html += '<%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>';
+                      html += '</div>';
+                    html += '</div>';
+                  html += '</div>';
+               }
+           }else{
+               html += "<p clas='error'>No hay resultado para su busqueda</p>"
+           }
+           
+           $("#list_places").html(html);
+       }
+    
+      
+      $("#buscar_park").on("click", function(){
+        
+      
+          var data = {
+               address: $("#address").val(),
+               started_at: $("#started_at").val(),
+               ended_at: $("#ended_at").val(),
+               district: $("#district").val()
+           }
+           
+           $.ajax({
+              type:"GET",
+              url:"home/listplace",
+              data: data,
+              dataType:"json",
+              success:function(data){
+                printHtml(data);
+                //console.log(data);
+              }
+            });
+      })
+      
+      $("#limpiar_park").on("click", function(){
+        $("#address").val('');
+        $("#started_at").val('');
+        $("#ended_at").val('');
+        $("#district").val('');
+      });
     
   })
 </script>

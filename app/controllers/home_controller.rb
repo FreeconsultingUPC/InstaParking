@@ -4,6 +4,38 @@ class HomeController < ApplicationController
     #if user_signed_in?
     #  redirect_to controller: :reservations , action: :new
     #end
-    @places = Place.all
+    @places = Place.where(state:1)
+    
+    @districts = District.all
+    
+  end
+  
+  def listplace
+    
+    @conditions='state = 1';
+    
+    if params[:address] != ''
+      @conditions += " AND address like '%"+params[:address]+"%'"
+    end
+    
+    if params[:started_at] != ''
+      @conditions += " AND DATE_FORMAT(started_at,'%d/%m/%Y')='"+params[:started_at]+"'"
+    end
+    
+    if params[:ended_at] != ''
+      @conditions += " AND DATE_FORMAT(ended_at,'%d/%m/%Y')='"+params[:ended_at]+"'"
+    end
+    
+    if params[:district] != ''
+      @conditions += " AND district_id="+params[:district]
+    end
+    
+    @places = Place.where(@conditions)
+    
+    respond_to do |format|
+      format.html 
+      format.json {render json: @places.to_json(include: :district)}
+    end
+    
   end
 end

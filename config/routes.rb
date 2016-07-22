@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get 'reserve/delete'
 
   get 'reserve/index'
+  
+  resources :home do
+    collection do
+      get 'listplace'
+    end
+  end
 
   resources :reservations
   resources :places

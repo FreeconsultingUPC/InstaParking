@@ -164,3 +164,7 @@
 .dropdown-toggle{
     height: 70px;
 }
+
+.precio{
+  color: red;
+}
