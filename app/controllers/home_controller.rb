@@ -4,5 +4,6 @@ class HomeController < ApplicationController
     #if user_signed_in?
     #  redirect_to controller: :reservations , action: :new
     #end
+    @places = Place.all
   end
 end

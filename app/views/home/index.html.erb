@@ -63,65 +63,34 @@
       <div class="panel-heading">Parqueos</div>
       <div class="panel-body">
         
-        <div class="group-col">
-          <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
-              <lavel>Distrito: Ate</lavel><br>
-              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
-              <button type="button" class="btn btn-info">Ver Más</button>
-              <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-md btn-success" %>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
-            </div>
-          </div>
-        </div>
         
-        <div class="group-col">
-          <div class="row fila-lista">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+       
+          <% @places.each do |place| %>
+            
+            <div class="group-col">
+              <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <lavel>Dirección: <%=place.address %></lavel><br>
+                  <lavel>Distrito: <%=place.district %></lavel><br>
+                  <lavel>Precio: <b>S/. <%=place.price %></b></lavel><br>
+                  <button type="button" class="btn btn-info">Ver Más</button>
+                  <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-md btn-success" %>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                  <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-              <lavel>Dirección: Av. Los heraldos negros 2da etapa</lavel><br>
-              <lavel>Distrito: Ate</lavel><br>
-              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
-              <button type="button" class="btn btn-info">Ver Más</button>
-              <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-md btn-success" %>
-            </div>
-          </div>
-        </div>
+          <% end %>
         
-        <div class="group-col">
-          <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-              <lavel>Dirección: Av. Los heraldos negros 2da etapa</lavel><br>
-              <lavel>Distrito: Ate</lavel><br>
-              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
-              <button type="button" class="btn btn-info">Ver Más</button>
-              <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-md btn-success" %>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
-            </div>
-          </div>
-        </div>
         
-        <div class="group-col">
-          <div class="row fila-lista">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-              <lavel>Dirección: Aqui se mostrará la dirección exacta</lavel><br>
-              <lavel>Distrito: Ate</lavel><br>
-              <lavel>Precio: <b>S/. 20 / hora</b></lavel><br>
-              <button type="button" class="btn btn-info">Ver Más</button>
-              <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-md btn-success" %>
-            </div>
-          </div>
-        </div>
+        
+        
+        
+        
+        
+        
+        
         
         <div class="detalle-park" style="display:none">
           <div class="row">
