@@ -14,6 +14,12 @@ Rails.application.routes.draw do
       get 'listplace'
     end
   end
+  
+  resources :home do
+    collection do
+      get 'detailplace'
+    end
+  end
 
   resources :reservations
   resources :places

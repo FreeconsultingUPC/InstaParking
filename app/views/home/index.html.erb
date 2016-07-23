@@ -60,8 +60,10 @@
                   <div><b>Distrito:</b> <%= place.district.name %></div>
                   <div><b>Precio:</b> <b class="precio">S/. <%=place.price %></b></div>
                   <br>
-                  <%= link_to "Más Detalles", '', :class=>"btn btn-sm btn-info" %>
-                  <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-sm btn-success" %>
+                 
+                  <a onclick="detail(<%=place.id%>)" class="btn btn-sm btn-info" role="button">Más Detalles</a>
+                  <a onclick="reservar(<%=place.id%>)" class="btn btn-sm btn-success" role="button">Reservar</a>
+                  
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                   <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
@@ -100,36 +102,21 @@
 <script>
   $(document).ready(function(){
     $('#started_at').datepicker({
-      startDate: new Date(),
       autoclose: true,
       calendarWeeks: true,
+      format: 'yyyy-mm-dd'
     });
     $('#ended_at').datepicker({
-      startDate: $('#started_at').val(),
       autoclose: true,
       calendarWeeks: true,
+      format: 'yyyy-mm-dd'
     });
     
     $('#started_time').timepicker();
     $('#ended_time').timepicker();
     
     //boton reservar
-    $(".group-col .btn-info").on("click", function(){
-      $(".group-col").toggle();
-      $(".detalle-park").toggle();
-    });
-    
-    //ocultamos todos los item y mostramos el detalle
-    $(".group-col .btn-success").on("click", function(){
-      console.log("holaaa");
-    })
-    
-    $("#buscar_park").on("click", function(){
-      $(".group-col").show();
-      $(".detalle-park").hide();
-    });
-    
-    
+  
     printHtml = function(data){
            var html='';
           
@@ -143,8 +130,12 @@
                         html += '<div><b>Distrito: </b>'+data[i].district.name+'</div>';
                         html += '<div><b>Precio: </b> <b class="precio">S/. '+data[i].price+'</b></div>';
                         html += '<br>';
-                        html += '<%= link_to "Más Detalles", "", :class=>"btn btn-sm btn-info" %>&nbsp;';
-                        html += '<%= link_to "Reservar", reserve_new_path, :class=>"btn btn-sm btn-success" %>';
+                        html += '<a onclick="detail('+data[i].id+')" class="btn btn-sm btn-info" role="button">Más Detalles</a>&nbsp;';
+                        html += '<a onclick="reservar('+data[i].id+')" class="btn btn-sm btn-success" role="button">Reservar</a>';
+                        
+                        
+                  
+                  
                       html += '</div>';
                       
                       html += '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">';
@@ -159,7 +150,7 @@
            
            $("#list_places").html(html);
        }
-    
+       
       
       $("#buscar_park").on("click", function(){
         
@@ -182,6 +173,30 @@
               }
             });
       })
+      
+      printHtmlDetail = function(data){
+        var html = '';
+        
+        $("#list_places").html("detalle");
+      }
+        
+      detail = function(id){
+          var data = {
+               id: id
+           }
+           
+           $.ajax({
+              type:"GET",
+              url:"home/detailplace",
+              data: data,
+              dataType:"json",
+              success:function(data){
+                printHtmlDetail(data);
+                //console.log(data);
+              }
+            });
+      }
+      
       
       $("#limpiar_park").on("click", function(){
         $("#address").val('');

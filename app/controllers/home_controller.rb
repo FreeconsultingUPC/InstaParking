@@ -19,11 +19,11 @@ class HomeController < ApplicationController
     end
     
     if params[:started_at] != ''
-      @conditions += " AND DATE_FORMAT(started_at,'%d/%m/%Y')='"+params[:started_at]+"'"
+      @conditions += " AND started_at='"+params[:started_at]+"'"
     end
     
     if params[:ended_at] != ''
-      @conditions += " AND DATE_FORMAT(ended_at,'%d/%m/%Y')='"+params[:ended_at]+"'"
+      @conditions += " AND ended_at='"+params[:ended_at]+"'"
     end
     
     if params[:district] != ''
@@ -38,4 +38,15 @@ class HomeController < ApplicationController
     end
     
   end
+  
+  def detailplace
+    
+    @places = Place.all
+    
+    respond_to do |format|
+      format.html 
+      format.json {render json: @places.to_json(include: :district)}
+    end
+  end
+  
 end
