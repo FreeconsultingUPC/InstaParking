@@ -1,4 +1,4 @@
 class MenuRole < ActiveRecord::Base
-  belongs_to :menus
-  belongs_to :roles
+  belongs_to :menu
+  belongs_to :role
 end

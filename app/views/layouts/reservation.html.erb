@@ -38,7 +38,7 @@
   </head>
   <body>
 
-   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
      
        <div class="container">
          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -61,40 +61,22 @@
           
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a class="dropdown-toggle" data-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
-                <% if user_signed_in? %>
-                  <%=current_user.email %>
-                <% end %>
-                <i class="fa fa-user fa-2x"></i>
-              </a>
+              <a class="dropdown-toggle" data-dropdown-toggle="" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user fa-2x"></i></a>
               <ul class="dropdown-menu">
-                <% if !user_signed_in? %>
-                  <li><%= link_to "Sign Up", new_user_registration_path, :class=>'' %></li>
-                  <li><%= link_to "Sign In", new_user_session_path, :class=>'' %></li>
-                <% else %>
-                  <!--<li><%= link_to "Sign Up", new_user_registration_path, :class=>'' %></li>-->
-                  <li><%= link_to(destroy_user_session_path, :method => :delete, :class => '') do %>
-                    <i class="fa fa-fw fa-power-off"> </i><span> Sign Out</span>
-                    <% end %>
-                  </li>
-                  <li><%= link_to "Mis Reservas", reservations_path, :class=>'' %></li>
-                  <li><%= link_to "Mis Parqueos", places_path, :class=>'' %></li>
-                  <li><%= link_to "Mis Favoritos", favorites_path, :class=>'' %></li>
-                <% end %>
+                <%= render 'layouts/menu_user_two' %>
               </ul>
             </li>
           </ul>
-          
-          
-          
           
         </div>
       </div>
     </div>
     <div class="space"></div>
-    
-    
-    <div class="container">
+    <div id="fondo_img_taxi">
+      <%= image_tag('fondo_reserva.jpg', :class => "img img-responsive") %>
+    </div>
+
+    <div id="container_reservation" class="container">
       <div class="row">
         <div class="col-lg-12">
           <%= bootstrap_flash %>
@@ -116,5 +98,6 @@
         });
       })
     </script>
+
   </body>
 </html>

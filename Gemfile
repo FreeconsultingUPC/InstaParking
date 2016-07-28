@@ -63,3 +63,5 @@ gem 'bootstrap-datepicker-rails'
 #timepicker bootstrap
 gem 'bootstrap-timepicker-rails'
 
+#jquery validations
+gem 'jquery-validation-rails'

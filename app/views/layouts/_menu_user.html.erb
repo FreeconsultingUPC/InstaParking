@@ -1,19 +1,9 @@
-<li><%= link_to "Publicar estacionamientos", new_place_path %></li>
-<li><%= link_to "Reservaciones", new_reservation_path %></li>
-
+<li><%= link_to "Reservas", root_path %></li>
+<li><%= link_to "Publicar Parqueo", new_place_path %></li>
+<!--<li><%= link_to "Reservaciones", new_reservation_path %></li>
 <li><%= link_to "Favoritos", favorites_path %></li>
 <li><%= link_to "Distrito", districts_path %></li>
 <li><%= link_to "Roles", roles_path %></li>
 <li><%= link_to "Menus", menus_path %></li>
 <li><%= link_to "Menu Roles", menu_roles_path %></li>
-<li><%= link_to "Reservations Types", reservation_types_path %></li>
-
-<% if user_signed_in? %>
-<li>
-    <%= link_to(destroy_user_session_path, :method => :delete, :class => '') do %>
-    <i class="fa fa-fw fa-power-off"> </i><span> Sign Out</span>
-    <% end %>
-</li>
-<% else %>
-    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-<% end %>
+<li><%= link_to "Reservations Types", reservation_types_path %></li>-->

@@ -17,3 +17,5 @@
 //= require_tree .
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
+//= require jquery.validate
+//= require jquery.validate.additional-methods

@@ -1,3 +1,72 @@
+
+/**HOME RESERVA DE PARKING**/
+#fondo_img_taxi{
+    /*height: 450px;
+    background: url(/assets/fondo_reserva.jpg) no-repeat;
+    width: 100%;*/
+    border-bottom: 1px solid #dff0d8;
+}
+
+@media (min-width: 1200px) {
+  #fondo_img_taxi img {
+    width: 100%;
+    height: 420px;
+  }
+  
+  #container_reservation{
+    margin-top: -139px;
+  }
+
+}
+
+@media (max-width: 1200px) {
+  #fondo_img_taxi img {
+    width: 100%;
+    height: 420px;
+  }
+  
+  #container_reservation{
+    margin-top: -139px;
+  }
+
+}
+
+@media (max-width: 992px) {
+  #fondo_img_taxi img {
+    width: 100%;
+    height: 360px;
+  }
+  
+  #container_reservation{
+    margin-top: -118px;
+  }
+}
+
+@media (max-width: 768px) {
+  #fondo_img_taxi img {
+    width: 100%;
+    height: 300px;
+  }
+  
+  #container_reservation{
+    margin-top: -97px;
+  }
+}
+
+@media (max-width: 480px) {
+  #fondo_img_taxi img {
+    width: 100%;
+    height: 300px;
+  }
+  
+  #container_reservation{
+    margin-top: -97px;
+  }
+}
+
+
+/****/
+
 .navbar-static-top{
     margin-bottom: 0px;
 }
@@ -13,7 +82,7 @@
 }
 
 .space{
-    margin-top:80px;
+    margin-top:72px;
 }
 
 .form-horizontal .form-group {
@@ -41,8 +110,9 @@
 .footer{
     background: #404040;
     color: #fff;
-    height: 30px;
+    height: 100px;
     text-align:center;
+    padding-top: 10px;
 }
 
 .navbar-default{
@@ -59,7 +129,7 @@
 
 
 
-.navbar-nav li:hover{
+.menu-sis li:hover{
     background:#ffa64d;
     color:#fff;
     padding-bottom:20px;
@@ -67,4 +137,47 @@
 
 .devise-bs{
     max-width:300px;
+}
+
+.group-col{
+    border-bottom: 1px solid #dff0d8;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.menu-popup{
+    float: left;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #f5ab62;
+    color: #555;
+    cursor: hand;
+}
+
+.dropdown-toggle{
+    height: 70px;
+}
+
+.precio{
+  color: red;
+}
+
+input.error, select.error{
+  border: 1px solid #a95442;
+}
+
+.error{
+  color: #a95442;
+}
+
+#list_places{
+  max-height: 400px;
+  overflow-y: scroll;
 }

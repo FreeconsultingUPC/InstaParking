@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.where(user_id:current_user.id)
   end
 
   # GET /places/1
@@ -15,6 +15,10 @@ class PlacesController < ApplicationController
   # GET /places/new
   def new
     @place = Place.new
+    
+    @districts = District.all
+    
+    @reservation_types = ReservationType.all
   end
 
   # GET /places/1/edit
@@ -24,12 +28,29 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-    @place = Place.new(place_params)
+    
+
+    @place = Place.new
+    
+    @place.address = params[:address]
+    @place.price = params[:price]
+    @place.started_at = params[:started_at]
+    @place.ended_at = params[:ended_at]
+    @place.started_time = params[:started_time]
+    @place.ended_time = params[:ended_time]
+    @place.state = 1
+    @place.price = params[:price]
+    @place.district_id = params[:district]
+    @place.reservation_type_id = params[:reservation_type]
+    @place.user_id = current_user.id
+    @place.description = params[:description]
+    
+    
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
-        format.json { render :show, status: :created, location: @place }
+        format.html { redirect_to action: 'index', notice: 'Place was successfully created.' }
+        #format.json { render :new, status: :created, location: @place }
       else
         format.html { render :new }
         format.json { render json: @place.errors, status: :unprocessable_entity }

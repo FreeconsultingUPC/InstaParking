@@ -1,68 +1,97 @@
 
-<!--<div id="home" class="grupo">
-        <h1 class="title">Home</h1>
-        <div class="row">
-          <div class="col-md-3 text-center">
-              <%= image_tag('accesibilidad.jpg', :class => "img img-circle") %>
-              <h3>Accesibilidad</h3>
-              <p class="p-home">Tenemos estacionamientos en todos los distritos de Lima de manera que puedas contar con nosotros en el lugar que estes.</p>
-          </div>
-          <div class="col-md-3 text-center">
-              <%= image_tag('confianza.jpg', :class => "img img-circle") %>
-              <h3>Confianza</h3>
-              <p class="p-home">Son mas de 5000 usuarios que han utilizado el servicio y que garantizan una buena experiencia con nosotros.</p>
-          </div>
-          <div class="col-md-3 text-center">
-              <%= image_tag('seguridad.jpg', :class => "img img-circle") %>
-              <h3>Seguridad</h3>
-              <p class="p-home">Contamos con un control exhaustivo  de verificacion de estacionamientos para que puedas estar seguro al usar nuestro servicio.</p>
-          </div>
-          <div class="col-md-3 text-center">
-              <%= image_tag('tiempo.jpg', :class => "img img-circle") %>
-              <h3>Tiempo</h3>
-          <p class="p-home">Reduce las horas interminables en la busqueda de un estacionamiento para usarlas en las cosas importantes de tu vida.</p>
-          </div>
-        </div>
-      </div>-->
-      
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
     <div class="panel panel-info">
       <div class="panel-heading">Formulario De Busqueda de Parqueo</div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="string optional control-label">Dirección</label>
+              <input class="string optional form-control" type="text" name="address" id="address">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div class="form-group">
               <label class="string optional control-label">Fecha Desde</label>
               <input class="string optional form-control" type="text" name="started_at" id="started_at" data-provide='datepicker'>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div class="form-group">
               <label class="string optional control-label">Fecha Hasta</label>
               <input class="string optional form-control" type="text" name="ended_at" id="ended_at" data-provide='datepicker'>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
-              <div class="input-group bootstrap-timepicker timepicker">
-                <input id="timepicker1" type="text" class="form-control input-small">
-                <span class="input-group-addon"><i class=""></i></span>
-              </div>
+              <label class="control-label">Distrito</label>
+              <select class="form-control" type="text" name="district" id="district">
+                <option value="">Seleccionar</option>
+                <% @districts.each do |district| %>
+                  <option value="<%=district.id %>"><%=district.name %></option>
+                <% end %>
+              </select>
             </div>
           </div>
-          <div class="col-lg-6">
-            
+        </div>
+        <div class="row">
+          <div class="col-lg-12 pull-right">
+            <button type="button" class="btn btn-lg btn-success" id="buscar_park">Buscar</button>
+            <button type="button" class="btn btn-lg btn-default" id="limpiar_park">Limpiar</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
     <div class="panel panel-success">
-      <div class="panel-heading">Panel heading without title</div>
-      <div class="panel-body">
-        Panel content
+      <div class="panel-heading">Paquesos Disponibles</div>
+      <div class="panel-body" id="list_places">
+        
+        
+       
+          <% @places.each do |place| %>
+            
+            <div class="group-col">
+              <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <div><b>Dirección:</b> <%=place.address %></div>
+                  <div><b>Distrito:</b> <%= place.district.name %></div>
+                  <div><b>Precio:</b> <b class="precio">S/. <%=place.price %></b></div>
+                  <br>
+                 
+                  <a onclick="detail(<%=place.id%>)" class="btn btn-sm btn-info" role="button">Más Detalles</a>
+                  <a onclick="reservar(<%=place.id%>)" class="btn btn-sm btn-success" role="button">Reservar</a>
+                  
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                  <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        
+
+        <div class="detalle-park" style="display:none">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'500', :height => '300') %>
+            </div>
+            <div class="col-lg-12">
+              <b>Dirección:</b>Av. Los heraldos negros 2da etapa<br>
+              <b>Distrito:</b>Villa María del triunfo<br>
+              <b>Precio:</b>S/. 50<br>
+              <b>Descripción:</b>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo)<br>
+              <br>
+              
+            
+              <%= link_to "Reservar", reserve_new_path, :class=>"btn btn-lg btn-success" %>
+            </div>
+          </div>
+        </div>
+        
+        
       </div>
     </div>
   </div>
@@ -72,8 +101,110 @@
 
 <script>
   $(document).ready(function(){
-    $('.datepicker').datepicker();
-    $('#timepicker1').timepicker();
+    $('#started_at').datepicker({
+      autoclose: true,
+      calendarWeeks: true,
+      format: 'yyyy-mm-dd'
+    });
+    $('#ended_at').datepicker({
+      autoclose: true,
+      calendarWeeks: true,
+      format: 'yyyy-mm-dd'
+    });
+    
+    $('#started_time').timepicker();
+    $('#ended_time').timepicker();
+    
+    //boton reservar
+  
+    printHtml = function(data){
+           var html='';
+          
+           if(data.length>0){
+               for (var i = 0; i < data.length; i++) {
+                 
+                  html += '<div class="group-col">';
+                    html += '<div class="row">';
+                      html += '<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">';
+                        html += '<div><b>Dirección: </b>'+data[i].address+'</div>';
+                        html += '<div><b>Distrito: </b>'+data[i].district.name+'</div>';
+                        html += '<div><b>Precio: </b> <b class="precio">S/. '+data[i].price+'</b></div>';
+                        html += '<br>';
+                        html += '<a onclick="detail('+data[i].id+')" class="btn btn-sm btn-info" role="button">Más Detalles</a>&nbsp;';
+                        html += '<a onclick="reservar('+data[i].id+')" class="btn btn-sm btn-success" role="button">Reservar</a>';
+                        
+                        
+                  
+                  
+                      html += '</div>';
+                      
+                      html += '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">';
+                        html += '<%= image_tag('img_mini.jpg', :class => "img img-responsive", :width =>'100', :height => '100') %>';
+                      html += '</div>';
+                    html += '</div>';
+                  html += '</div>';
+               }
+           }else{
+               html += "<p clas='error'>No hay resultado para su busqueda</p>"
+           }
+           
+           $("#list_places").html(html);
+       }
+       
+      
+      $("#buscar_park").on("click", function(){
+        
+      
+          var data = {
+               address: $("#address").val(),
+               started_at: $("#started_at").val(),
+               ended_at: $("#ended_at").val(),
+               district: $("#district").val()
+           }
+           
+           $.ajax({
+              type:"GET",
+              url:"home/listplace",
+              data: data,
+              dataType:"json",
+              success:function(data){
+                printHtml(data);
+                //console.log(data);
+              }
+            });
+      })
+      
+      printHtmlDetail = function(data){
+        var html = '';
+        
+        $("#list_places").html("detalle");
+      }
+        
+      detail = function(id){
+          var data = {
+               id: id
+           }
+           
+           $.ajax({
+              type:"GET",
+              url:"home/detailplace",
+              data: data,
+              dataType:"json",
+              success:function(data){
+                printHtmlDetail(data);
+                //console.log(data);
+              }
+            });
+      }
+      
+      
+      $("#limpiar_park").on("click", function(){
+        $("#address").val('');
+        $("#started_at").val('');
+        $("#ended_at").val('');
+        $("#district").val('');
+      });
+    
   })
 </script>
 
