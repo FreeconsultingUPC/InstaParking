@@ -1,56 +1,122 @@
 <%= simple_form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :address %>
-    <%= error_span(@place[:address]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :price %>
-    <%= error_span(@place[:price]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :url_image %>
-    <%= error_span(@place[:url_image]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :started_at %>
-    <%= error_span(@place[:started_at]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :ended_at %>
-    <%= error_span(@place[:ended_at]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :started_time %>
-    <%= error_span(@place[:started_time]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :ended_time %>
-    <%= error_span(@place[:ended_time]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :description %>
-    <%= error_span(@place[:description]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.association :district %>
-    <%= error_span(@place[:district_id]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.association :reservation_type %>
-    <%= error_span(@place[:reservation_type_id]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.association :user %>
-    <%= error_span(@place[:user_id]) %>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-    <%= f.input :state %>
-    <%= error_span(@place[:state]) %>
-  </div>
-</div>
 
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                places_path, :class => 'btn btn-default' %>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Dirección</label>
+        <input class="form-control" type="text" name="address" id="address">
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Distrito</label>
+        <select class="form-control" type="text" name="district" id="district">
+          <option value="">Seleccionar</option>
+          <% @districts.each do |district| %>
+            <option value="<%=district.id %>"><%=district.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Tipo de Reservación</label>
+        <select class="form-control" type="text" name="reservation_type" id="reservation_type">
+          <option value="">Seleccionar</option>
+          <% @reservation_types.each do |type| %>
+            <option value="<%=type.id %>"><%=type.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Precio</label>
+        <input class="form-control" type="text" name="price" id="price">
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Fecha Desde</label>
+        <input class="form-control" type="text" name="started_at" id="started_at" data-provide='datepicker'>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Fecha Hasta</label>
+        <input class="form-control" type="text" name="ended_at" id="ended_at" data-provide='datepicker'>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group bootstrap-timepicker timepicker">
+        <label class="control-label">Hora Desde</label>
+        <input class="form-control" type="text" name="started_time" id="started_time">
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group bootstrap-timepicker timepicker">
+        <label class="control-label">Hora Hasta</label>
+        <input class="form-control" type="text" name="ended_time" id="ended_time">
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Imagen</label>
+        <input class="form-control" type="text" name="url_image" id="url_image">
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="form-group">
+        <label class="control-label">Descripción</label>
+        <textarea class="form-control hresize" id="description" name="description" row="5" col="3"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <input type="submit" value="Crear Parqueo" class="btn btn-md btn-success">
+      <a class="btn btn-md btn-danger" href="/places">Cancel</a>
+    </div>
+  </div>
+    
+  
 <% end %>
+
+<script>
+  $(document).ready(function () {
+    
+    $("#address").focus();
+    
+    $('#started_at').datepicker({
+      autoclose: true,
+      calendarWeeks: true,
+      format: 'yyyy-mm-dd',
+      orientation: "bottom auto",
+      defaultDate: new Date()
+    });
+    $('#ended_at').datepicker({
+      autoclose: true,
+      calendarWeeks: true,
+      format: 'yyyy-mm-dd',
+      orientation: "bottom auto",
+      defaultDate: new Date()
+    });
+    
+    $('#started_time').timepicker();
+    $('#ended_time').timepicker();
+    
+    $("#new_place").validate({
+      rules: {
+      "address": {required: true},
+      "started_at": {required: true},
+      "ended_at": {required: true},
+      "started_time": {required: true},
+      "ended_time": {required: true},
+      "district": {required: true},
+      "reservation_pyte": {required: true},
+      "price": {required: true}
+      
+      }
+    });
+  });
+</script>
