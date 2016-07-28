@@ -28,6 +28,9 @@
         </select>
       </div>
     </div>
+  </div>
+    
+  <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="form-group">
         <label class="control-label">Precio</label>
@@ -46,6 +49,9 @@
         <input class="form-control" type="text" name="ended_at" id="ended_at" data-provide='datepicker'>
       </div>
     </div>
+  </div>
+    
+  <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="form-group bootstrap-timepicker timepicker">
         <label class="control-label">Hora Desde</label>
@@ -64,6 +70,8 @@
         <input class="form-control" type="text" name="url_image" id="url_image">
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="form-group">
         <label class="control-label">Descripción</label>
@@ -77,6 +85,7 @@
       <a class="btn btn-md btn-danger" href="/places">Cancel</a>
     </div>
   </div>
+</div>
 <% end %>  
 
 
@@ -112,7 +121,8 @@
       "ended_time": {required: true},
       "district": {required: true},
       "reservation_pyte": {required: true},
-      "price": {required: true}
+      "price": {required: true},
+      "reservation_type":{required: true}
       
       }
     });
