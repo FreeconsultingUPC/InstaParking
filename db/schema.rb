@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711042950) do
+ActiveRecord::Schema.define(version: 20160728195705) do
 
   create_table "districts", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -117,10 +117,15 @@ ActiveRecord::Schema.define(version: 20160711042950) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.string   "phone",                  limit: 255
+    t.integer  "role_id",                limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   add_foreign_key "favorites", "districts"
   add_foreign_key "favorites", "users"
@@ -132,4 +137,5 @@ ActiveRecord::Schema.define(version: 20160711042950) do
   add_foreign_key "reservations", "places"
   add_foreign_key "reservations", "reservation_types"
   add_foreign_key "reservations", "users"
+  add_foreign_key "users", "roles"
 end

@@ -116,9 +116,9 @@
 }
 
 .navbar-default{
-    background-color: #ffd633;
+    background-color: #ffdb4d;
     border-color: #ffb366;
-    height:70px;
+    min-height:70px;
 }
 
 /*.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
@@ -161,9 +161,9 @@
     cursor: hand;
 }
 
-.dropdown-toggle{
+/*.dropdown-toggle{
     height: 70px;
-}
+}*/
 
 .precio{
   color: red;
@@ -180,4 +180,11 @@ input.error, select.error{
 #list_places{
   max-height: 400px;
   overflow-y: scroll;
+}
+
+.usuario{
+    margin-top: 21px;
+    font-size: 14px;
+    color: #5a5858;
+    margin-right: 10px;
 }
