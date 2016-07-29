@@ -6,6 +6,8 @@ class HomeController < ApplicationController
     #end
     @places = Place.where(state:1)
     
+    @count_place = Place.where(state:1).size
+    
     @districts = District.all
     
   end

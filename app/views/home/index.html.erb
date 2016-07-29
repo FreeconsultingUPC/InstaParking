@@ -59,7 +59,7 @@
       <div class="panel-body" id="list_places">
         
         
-       
+         <% if @count_place > 0%>
           <% @places.each do |place| %>
             
             <div class="group-col">
@@ -80,6 +80,9 @@
               </div>
             </div>
           <% end %>
+        <% else %>
+          <p class='error'>No hay resultado para su busqueda</p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -119,7 +122,7 @@
                         html += '<div><b>Precio: </b> <b class="precio">S/. '+data[i].price+'</b> Por hora</div>';
                         html += '<br>';
                         
-                        html += '<form class="simple_form form-horizontal" novalidate="novalidate" id="new_place" action="/reserve/new" accept-charset="UTF-8" method="get">';
+                        html += '<form class="simple_form form-horizontal" novalidate="novalidate" id="new_place" action="reserve/new" accept-charset="UTF-8" method="get">';
                           html += '<a onclick="detail('+data[i].id+')" class="btn btn-sm btn-info" role="button">Más Detalles</a>&nbsp;';
                           html += '<button type="submit" class="btn btn-sm btn-success">Reservar</button>';
                           html += '<input type="hidden" name="place_id" id="place_id" value="'+data[i].id+'">';
@@ -193,7 +196,7 @@
           html += '<br>';
           
           
-          html += '<form class="simple_form form-horizontal" novalidate="novalidate" id="new_place" action="/reserve/new" accept-charset="UTF-8" method="get">';
+          html += '<form class="simple_form form-horizontal" novalidate="novalidate" id="new_place" action="reserve/new" accept-charset="UTF-8" method="get">';
             html += '<button type="submit" class="btn btn-sm btn-success">Reservar</button>&nbsp;';
             html += '<a onclick="atras()" class="btn btn-sm btn-default" role="button"><< Atras</a>';
             html += '<input type="hidden" name="place_id" id="place_id" value="'+data[i].id+'">';

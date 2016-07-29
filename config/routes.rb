@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   get 'reserve/new'
 
-  get 'reserve/show'
+  #get 'reserve/show'
 
-  get 'reserve/reserve'
+  post 'reserve/reserve'
 
-  get 'reserve/delete'
+  #get 'reserve/delete'
 
-  get 'reserve/index'
+  #get 'reserve/index'
   
   resources :home do
     collection do

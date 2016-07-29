@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729140311) do
+ActiveRecord::Schema.define(version: 20160729202345) do
 
   create_table "districts", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20160729140311) do
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "place_id",    limit: 4
   end
 
   add_index "favorites", ["district_id"], name: "index_favorites_on_district_id", using: :btree
+  add_index "favorites", ["place_id"], name: "index_favorites_on_place_id", using: :btree
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "menu_roles", force: :cascade do |t|
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160729140311) do
     t.integer  "reservation_type_id", limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "state",               limit: 255
   end
 
   add_index "reservations", ["place_id"], name: "index_reservations_on_place_id", using: :btree
@@ -129,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160729140311) do
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   add_foreign_key "favorites", "districts"
+  add_foreign_key "favorites", "places"
   add_foreign_key "favorites", "users"
   add_foreign_key "menu_roles", "menus"
   add_foreign_key "menu_roles", "roles"
