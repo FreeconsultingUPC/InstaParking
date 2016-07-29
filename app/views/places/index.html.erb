@@ -1,6 +1,6 @@
 <%- model_class = Place -%>
 <div class="page-header">
-  <h1>Mis Parqueos</h1>
+  <h1>Mis Estacionamientos</h1>
 </div>
 
 <div class="row">
@@ -40,7 +40,7 @@
             <td><%= place.started_time %></td>
             <td><%= place.ended_time %></td>
             <td><%= place.description %></td>
-            <td><%= place.user_id %></td>
+            <td><%= place.user.first_name %></td>
             <td><%= place.district.name %></td>
             <td><%= place.reservation_type.name %></td>
             <td>

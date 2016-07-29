@@ -54,6 +54,14 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1
   # DELETE /reservations/1.json
   def destroy
+    
+    @reservation_one =  Reservation.find(params[:id])
+    @place_id = @reservation_one.place_id
+    
+    @place = Place.find_by(id: @place_id)
+    @place.state = 1
+    @place.save
+    
     @reservation.destroy
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }

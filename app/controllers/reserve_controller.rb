@@ -20,6 +20,7 @@ class ReserveController < ApplicationController
     @reservation.started_at = params[:started_at]
     @reservation.ended_at = params[:ended_at]
     @reservation.started_time = params[:started_time]
+    @reservation.ended_time = params[:ended_time]
     @reservation.reservation_type_id = params[:reservation_type]
     @reservation.place_id = params[:place_id]
     @reservation.user_id = current_user.id
