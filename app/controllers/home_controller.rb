@@ -10,6 +10,16 @@ class HomeController < ApplicationController
     
   end
   
+  def details
+    
+    @places = Place.all
+    
+    respond_to do |format|
+      format.html 
+      format.json {render json: @places.to_json(include: :district)}
+    end
+  end
+  
   def listplace
     
     @conditions='state = 1';
@@ -39,15 +49,5 @@ class HomeController < ApplicationController
     
   end
   
-  def detailplace
-    
-    @places = Place.all
-    
-    respond_to do |format|
-      format.html 
-      format.json {render json: @places.to_json(include: :district)}
-    end
-    
-  end
-  
+
 end

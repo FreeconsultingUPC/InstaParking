@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   resources :home do
     collection do
-      get 'detailplace'
+      get 'details'
     end
   end
 
