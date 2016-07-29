@@ -44,6 +44,7 @@ class PlacesController < ApplicationController
     @place.reservation_type_id = params[:reservation_type]
     @place.user_id = current_user.id
     @place.description = params[:description]
+    @place.info = params[:info]
     
     
 

@@ -1,5 +1,9 @@
 class ReserveController < ApplicationController
+  layout "reservation"
+  
   before_action :authenticate_user!
+  
+  # GET /places/new
   def new
   end
 

@@ -10,15 +10,6 @@ class HomeController < ApplicationController
     
   end
   
-  def details
-    
-    @places = Place.all
-    
-    respond_to do |format|
-      format.html 
-      format.json {render json: @places.to_json(include: :district)}
-    end
-  end
   
   def listplace
     
@@ -47,6 +38,15 @@ class HomeController < ApplicationController
       format.json {render json: @places.to_json(include: :district)}
     end
     
+  end
+  
+  def show
+    @places = Place.where(id: params[:id_place])
+    
+    respond_to do |format|
+      format.html 
+      format.json {render json: @places.to_json(:include=>[:district, :reservation_type, :user])}
+    end
   end
   
 

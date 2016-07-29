@@ -177,9 +177,14 @@ input.error, select.error{
   color: #a95442;
 }
 
+p.error{
+  color: #a95442 !important;
+  font-size: 18px !important;
+}
+
 #list_places{
   max-height: 400px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .usuario{
@@ -187,4 +192,17 @@ input.error, select.error{
     font-size: 14px;
     color: #5a5858;
     margin-right: 10px;
+}
+
+#group_user_parking{
+  border-bottom: 1px solid #d6e9c6;
+  margin-bottom: 10px;
+}
+
+.img_parking{
+  border: 1px solid #d6e9c6;
+}
+
+#img_loading{
+  float: left;
 }
