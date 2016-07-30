@@ -50,4 +50,5 @@ class ReserveController < ApplicationController
     
     redirect_to root_path, :flash => { :success => "Su reserva se realizó con éxito; su código de reserva es: RESERVATION0000"+@code_reservation.to_s }
   end
+  
 end

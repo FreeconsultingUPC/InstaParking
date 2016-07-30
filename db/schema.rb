@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160729202345) do
     t.float    "price",               limit: 24
     t.string   "url_image",           limit: 255
     t.boolean  "state"
+    t.boolean  "state_list"
     t.date     "started_at"
     t.date     "ended_at"
     t.time     "started_time"

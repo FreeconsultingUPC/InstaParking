@@ -5,6 +5,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.float :price
       t.string :url_image
       t.boolean :state
+      t.boolean :state_list
       t.date :started_at
       t.date :ended_at
       t.time :started_time

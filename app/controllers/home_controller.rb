@@ -4,9 +4,9 @@ class HomeController < ApplicationController
     #if user_signed_in?
     #  redirect_to controller: :reservations , action: :new
     #end
-    @places = Place.where(state:1)
+    @places = Place.where('state=1 AND state_list=1')
     
-    @count_place = Place.where(state:1).size
+    @count_place = Place.where('state=1 AND state_list=1').size
     
     @districts = District.all
     
@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   
   def listplace
     
-    @conditions='state = 1';
+    @conditions='state=1 AND state_list=1';
     
     if params[:address] != ''
       @conditions += " AND address like '%"+params[:address]+"%'"

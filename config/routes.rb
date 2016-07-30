@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  get 'reserve/new'
+  get 'confirm_reserve/index'
 
-  #get 'reserve/show'
+  post 'confirm_reserve/confirm'
+  post 'confirm_reserve/cancel'
+
+  get 'reserve/new'
 
   post 'reserve/reserve'
 
-  #get 'reserve/delete'
-
-  #get 'reserve/index'
-  
   resources :home do
     collection do
       get 'listplace'

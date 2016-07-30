@@ -1,6 +1,6 @@
 class MenuRolesController < ApplicationController
   before_action :set_menu_role, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /menu_roles
   # GET /menu_roles.json
   def index

@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /places
   # GET /places.json
   def index
@@ -39,6 +39,7 @@ class PlacesController < ApplicationController
     @place.started_time = params[:started_time]
     @place.ended_time = params[:ended_time]
     @place.state = 1
+    @place.state_list = 1
     @place.price = params[:price]
     @place.district_id = params[:district]
     @place.reservation_type_id = params[:reservation_type]
@@ -76,9 +77,24 @@ class PlacesController < ApplicationController
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
-    @place.destroy
+    #deshabilitamos
+    
+    @place = Place.find_by(id: params[:id])
+    
+    if @place.state_list === false
+      @new_id = 1
+      @msj = 'Enable'
+    else
+      @new_id = 0
+      @msj = 'Disabled'
+    end
+    
+    @place.state_list = @new_id
+    @place.save
+    
+    #@place.destroy
     respond_to do |format|
-      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
+      format.html { redirect_to places_url, notice: 'Place was successfully '+@msj }
       format.json { head :no_content }
     end
   end

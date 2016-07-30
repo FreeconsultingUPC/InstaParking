@@ -32,7 +32,7 @@
         <td>
           <!--<%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_reservation_path(reservation), :class => 'btn btn-default btn-xs' %>-->
-          <% if reservation.state === 'Emitido' %>
+          <% if reservation.state = 'Emitido' %>
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       reservation_path(reservation),
                       :method => :delete,
