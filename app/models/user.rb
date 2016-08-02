@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         
+  
+  devise :timeoutable, :timeout_in => 3.minutes
+  
   has_many :favorites
   has_many :reservations
   has_many :places

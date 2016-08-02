@@ -1,6 +1,6 @@
 class ConfirmReserveController < ApplicationController
   def index
-    @reservations = Reservation.joins(:place).where('places.user_id=1')
+    @reservations = Reservation.joins(:place).where('places.user_id='+(current_user.id).to_s)
     
     @reservation = Reservation.new
   end
