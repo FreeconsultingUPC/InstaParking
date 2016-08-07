@@ -1,4 +1,4 @@
-<%= simple_form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @place, :html => { :class => 'form-horizontal', :multipart=> true } do |f| %>
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="form-group">
@@ -67,7 +67,8 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
       <div class="form-group">
         <label class="control-label">Imagen</label>
-        <input class="form-control" type="text" name="url_image" id="url_image">
+        <input class="form-control" type="file" name="url_image" id="url_image">
+        <!--<%= f.file_field :url_image %>-->
       </div>
     </div>
   </div>
@@ -120,7 +121,7 @@
     
     $("#new_place").validate({
       rules: {
-      "address": {required: true},
+      "address": {required: true, },
       "started_at": {required: true},
       "ended_at": {required: true},
       "started_time": {required: true},
@@ -128,8 +129,21 @@
       "district": {required: true},
       "reservation_pyte": {required: true},
       "price": {required: true},
-      "reservation_type":{required: true}
+      "reservation_type":{required: true},
+      "url_image":{required: true, accept:"jpg,png,jpeg,gif"}
       
+      },
+      messages:{
+        "address": "Campo Requerido",
+        "started_at": "Campo Requerido",
+        "ended_at": "Campo Requerido",
+        "started_time": "Campo Requerido",
+        "ended_time": "Campo Requerido",
+        "district": "Campo Requerido",
+        "reservation_pyte": "Campo Requerido",
+        "price": "Campo Requerido",
+        "reservation_type":"Campo Requerido",
+        "url_image":{required:"Campo Requerido",accept:"Puede subir imagen de tipo jpg/png/jpeg/gif"}
       }
     });
   });

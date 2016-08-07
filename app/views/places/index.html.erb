@@ -25,6 +25,7 @@
           <th>Usuario</th>
           <th>Distrito</th>
           <th>Tipo de Reservación</th>
+          <th>Imagen</th>
           <th>Estado</th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -42,6 +43,9 @@
             <td><%= place.user.first_name %></td>
             <td><%= place.district.name %></td>
             <td><%= place.reservation_type.name %></td>
+            <td>
+              <%= image_tag place.url_image, :width=>"80", :height=>"80" %>
+            </td>
             <td>
               <% if place.state_list === false%>
               Deshabilitado

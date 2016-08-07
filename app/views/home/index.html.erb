@@ -75,7 +75,7 @@
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                  <%= image_tag('img_mini.jpg', :class => "img img-responsive img_parking", :width =>'100', :height => '100') %>
+                  <%= image_tag place.url_image, :class => "img img-responsive img_parking", :width=>"150", :height=>"150" %>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@
                       html += '</div>';
                       
                       html += '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">';
-                        html += '<%= image_tag('img_mini.jpg', :class => "img img-responsive img_parking", :width =>'100', :height => '100') %>';
+                        html += '<img src="images/'+data[i].url_image+'" class="img img-responsive img_parking" width="150" height="150">';
                       html += '</div>';
                     html += '</div>';
                   html += '</div>';
@@ -192,7 +192,7 @@
           html +='<p><b>Referencia De Como Llegar: </b>'+data[i].info+'</p>';
           html +='<p><b>Más Detalles: </b>'+data[i].description+'</p>';
           
-          html += '<%= image_tag('img_mini.jpg', :class => "img img-responsive img_parking") %>';
+          html += '<img src="images/'+data[i].url_image+'" class="img img-responsive img_parking_det" width="" height="">';
           html += '<br>';
           
           

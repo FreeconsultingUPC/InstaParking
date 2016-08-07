@@ -10,6 +10,7 @@
       <th>Usuario</th>
       <th>Dirección</th>
       <th>Distrito</th>
+      <th>Estacionamiento</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
         <td><%= favorite.user.first_name %></td>
         <td><%= favorite.place.address %></td>
         <td><%= favorite.place.district.name %></td>
+        <td><%= image_tag favorite.place.url_image, :width=>"100", :height=>"80" %></td>
         <td>
           <!--<%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_favorite_path(favorite), :class => 'btn btn-default btn-xs' %>-->

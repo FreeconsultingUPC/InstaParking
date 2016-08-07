@@ -47,6 +47,25 @@ class PlacesController < ApplicationController
     @place.description = params[:description]
     @place.info = params[:info]
     
+    #Archivo subido por el usuario.
+    imagen = params[:url_image]
+    #Nombre original del archivo.
+    nombre = imagen.original_filename
+    #directorio
+    directorio = "public/images"
+    
+    #Ruta del archivo.
+    path = File.join(directorio, nombre);
+    #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
+    resultado = File.open(path, "wb") { |f| f.write(imagen.read) };
+    #Verifica si el archivo se subió correctamente.
+    if resultado
+      subir_archivo = "ok";
+    else
+      subir_archivo = "error";
+    end
+         
+    @place.url_image = nombre
     
 
     respond_to do |format|

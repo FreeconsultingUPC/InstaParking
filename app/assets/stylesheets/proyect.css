@@ -201,6 +201,10 @@ p.error{
 
 .img_parking{
   border: 1px solid #d6e9c6;
+  height: 90px;
+}
+.img_parking_det{
+  border: 1px solid #d6e9c6;
 }
 
 #img_loading{

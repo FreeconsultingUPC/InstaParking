@@ -12,7 +12,7 @@
       <th>Hora Desde</th>
       <th>Hora Hasta</th>
       <th>Usuario</th>
-      <th>Estacionamiento Id</th>
+      <th>Estacionamiento</th>
       <th>Estado</th>
       <th>Acciones</th>
     </tr>
@@ -27,7 +27,7 @@
         <td><%= reservation.started_time %></td>
         <td><%= reservation.ended_time %></td>
         <td><%= reservation.user.first_name %></td>
-        <td><%= reservation.place_id %></td>
+        <td><%= image_tag reservation.place.url_image, :width=>"100", :height=>"80" %></td>
         <td><%= reservation.state %></td>
         <td>
             <% if reservation.state === 'Emitido' %>

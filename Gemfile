@@ -65,3 +65,6 @@ gem 'bootstrap-timepicker-rails'
 
 #jquery validations
 gem 'jquery-validation-rails'
+
+#imagen con paperclip
+gem "paperclip", "~> 4.2"
